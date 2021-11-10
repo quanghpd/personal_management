@@ -20,7 +20,7 @@
                             {{ trans('cruds.assetstype.fields.id') }}
                         </th>
                         <td>
-                            {{ $asset_type->id }}
+                            {{ $assettype->id }}
                         </td>
                     </tr>
                     <tr>
@@ -28,7 +28,7 @@
                             {{ trans('cruds.assetstype.fields.name') }}
                         </th>
                         <td>
-                            {{ $asset_type->name }}
+                            {{ $assettype->name }}
                         </td>
                     </tr>
                     <tr>
@@ -36,7 +36,7 @@
                             {{ trans('cruds.assetstype.fields.description') }}
                         </th>
                         <td>
-                            {{ $asset_type->description }}
+                            {{ $assettype->description }}
                         </td>
                     </tr>
                 </tbody>

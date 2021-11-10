@@ -36,40 +36,32 @@ class AssetsTypeController extends Controller
         return redirect()->route('admin.assettype.index');
     }
 
-    public function edit($id)
+    public function edit(AssetsType $assettype)
     {
-        $asset_type = AssetsType::where('id',$id)->first();
-
         abort_if(Gate::denies('asset_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.assettype.edit', compact('asset_type'));
+        return view('admin.assettype.edit', compact('assettype'));
     }
 
-    public function update(UpdateAssetsTypeRequest $request, $id)
+    public function update(UpdateAssetsTypeRequest $request,AssetsType $assettype)
     {
-        $asset_type = AssetsType::where('id',$id)->first();
-
-        $asset_type->update($request->all());
+        $assettype->update($request->all());
 
         return redirect()->route('admin.assettype.index');
     }
 
-    public function show($id)
+    public function show(AssetsType $assettype)
     {
-        $asset_type = AssetsType::where('id',$id)->first();
-
         abort_if(Gate::denies('asset_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.assettype.show', compact('asset_type'));
+        return view('admin.assettype.show', compact('assettype'));
     }
 
-    public function destroy($id)
+    public function destroy(AssetsType $assettype)
     {
-        $asset_type = AssetsType::where('id',$id)->first();
-
         abort_if(Gate::denies('asset_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $asset_type->delete();
+        $assettype->delete();
 
         return back();
     }
